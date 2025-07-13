@@ -11,6 +11,8 @@ export class Invoice{
     company!: Company;
     items!: Items[];
     total!: number;
-    date!: Date;
+    date!: String;
+    methodPayment!: string;
+    status!: string;
 
 }

@@ -4,11 +4,15 @@ export class Items{
     name!: string;
     quantity!: number;
     price!: number;
-    // total!: number;
+    // constructor(id, product, name, quantity, price) {
+    //     this.id = id;
+    //     this.product = product;
+    //     this.name = name;
+    //     this.quantity = quantity;
+    //     this.price = price;
+    // }
 
-    // constructor() {
-    //     this.quantity = 1; // Default quantity
-    //     this.price = 0; // Default price
-    //     this.total = 0; // Default total
+    // get subtotal() {
+    //     return this.quantity * this.price;
     // }
 }
