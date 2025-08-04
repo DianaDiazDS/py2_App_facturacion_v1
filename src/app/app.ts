@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Invoice } from './components/invoice/invoice';
+import { InvoiceComponent } from './components/invoice/invoice';
 
 @Component({
   selector: 'app-root',
-  imports: [Invoice,RouterOutlet],
+  imports: [InvoiceComponent,RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

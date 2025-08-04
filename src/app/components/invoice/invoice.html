@@ -1,1 +1,74 @@
-<p>invoice works!</p>
+<div>
+  <h2>Factura</h2>
+  <ul>
+    <li><strong>Id :</strong>{{ invoice.id }}</li>
+    <li><strong>Nombre:</strong> {{ invoice.name }}</li>
+    <li>
+      <div>
+        <strong>Cliente:</strong>
+        <ul>
+          <li>Nombre: {{ invoice.client.name }}</li>
+          <li>Apellido: {{ invoice.client.lastname }}</li>
+          <li>
+            Dirección: {{ invoice.client.address.street }}-{{
+              invoice.client.address.number
+            }}-{{ invoice.client.address.city }}-{{
+              invoice.client.address.country
+            }}
+          </li>
+          <li>Correo: {{ invoice.client.correo }}</li>
+          <li>Teléfono: {{ invoice.client.phone }}</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>Empresa:</strong>
+        <ul>
+          <li>Nombre: {{ invoice.company.name }}</li>
+          <li>Número Fiscal: {{ invoice.company.fiscalNumber }}</li>
+          <li>Teléfono: {{ invoice.company.phone }}</li>
+          <li>Correo: {{ invoice.company.email }}</li>
+        </ul>
+      </div>
+    </li>
+
+    <!-- <li>
+            <div>
+                <strong>Items:</strong>
+                <ul>
+                    <li *ngFor="let item of invoice.items"> 
+                        Id: {{ item.id }} - Producto: {{ item.product }} - Nombre: {{ item.name }} - Cantidad: {{ item.quantity }} x Precio: {{ item.price }}
+                    </li>
+                </ul>
+            </div>
+        </li> -->
+    <li>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Producto</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of invoice.items">
+            <td>{{ item.id }}</td>
+            <td>{{ item.product }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+    <li><strong> Total:</strong> {{ invoice.total }}</li>
+    <li><strong>Método de Pago:</strong>  {{ invoice.methodPayment }}</li>
+    <li><strong> Estado:</strong>  {{ invoice.status }}</li>
+  </ul>
+
+  <div></div>
+</div>
