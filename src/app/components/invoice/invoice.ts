@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { InvoiceService } from '../../services/invoice';
 import { Invoice } from '../../models/invoice';
 import { CommonModule } from '@angular/common';
+import { ClientView } from '../client-view/client-view';
+import { CompanyView } from '../company-view/company-view';
+import { ListItems } from '../list-items/list-items';
+import { RowItem } from '../row-item/row-item';
+import { InvoiceView } from '../invoice-view/invoice-view';
 
 
 @Component({
   selector: 'app-invoice',
-  imports: [CommonModule],
+  imports: [CommonModule, InvoiceView, ClientView, CompanyView,ListItems,RowItem],
   templateUrl: './invoice.html'
 })
 export class InvoiceComponent implements OnInit{
