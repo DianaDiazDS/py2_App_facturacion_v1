@@ -1,39 +1,77 @@
-<div>
-  <h2>Factura</h2>
-  <ul>
-    <li><strong>Id :</strong>{{ invoice.id }}</li>
-    <li><strong>Nombre:</strong> {{ invoice.name }}</li>
-    <li>
-      <div>
-        <strong>Cliente:</strong>
-        <ul>
-          <li>Nombre: {{ invoice.client.name }}</li>
-          <li>Apellido: {{ invoice.client.lastname }}</li>
-          <li>
-            Dirección: {{ invoice.client.address.street }}-{{
-              invoice.client.address.number
-            }}-{{ invoice.client.address.city }}-{{
-              invoice.client.address.country
-            }}
-          </li>
-          <li>Correo: {{ invoice.client.correo }}</li>
-          <li>Teléfono: {{ invoice.client.phone }}</li>
+<!-- 
+  Contenedor principal que utiliza clases de Bootstrap:
+  - 'container': centra y limita el ancho del contenido.
+  - 'd-flex': aplica el modelo de caja flexible para organizar elementos hijos.
+  - 'align-items-center': centra verticalmente los elementos dentro del contenedor flex.
+  - 'flex-column': organiza los elementos hijos en una columna vertical.
+-->
+<div class="container align-items-center flex-column mt-5">
+  <div class="card shadow">
+    <div class="card-header">
+      <h2 class="text-center">Factura</h2>
+    </div>
+    <div class="card-body">
+      <div class="mb-4">
+        <ul class="list-group flex-grow-1 text-center d-flex align-items-center">
+          <li class="list-group-item"><strong>Id :</strong>{{ invoice.id }}</li>
+          <br>
+          <li class="list-group-item"><strong>Nombre:</strong> {{ invoice.name }}</li>
         </ul>
       </div>
-    </li>
-    <li>
-      <div>
-        <strong>Empresa:</strong>
-        <ul>
-          <li>Nombre: {{ invoice.company.name }}</li>
-          <li>Número Fiscal: {{ invoice.company.fiscalNumber }}</li>
-          <li>Teléfono: {{ invoice.company.phone }}</li>
-          <li>Correo: {{ invoice.company.email }}</li>
-        </ul>
-      </div>
-    </li>
 
-    <!-- <li>
+      <div class="row">
+        <div class="col">
+          <ul class="list-group h-100">
+            <li class="list-group-item h-100">
+              <div>
+                <strong>Cliente:</strong>
+                <ul>
+                  <li>Nombre: {{ invoice.client.name }}</li>
+                  <li>Apellido: {{ invoice.client.lastname }}</li>
+                  <li>
+                    Dirección: {{ invoice.client.address.street }}-{{
+                      invoice.client.address.number
+                    }}-{{ invoice.client.address.city }}-{{
+                      invoice.client.address.country
+                    }}
+                  </li>
+                  <li>Correo: {{ invoice.client.correo }}</li>
+                  <li>Teléfono: {{ invoice.client.phone }}</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <ul class="list-group h-100">
+            <li class="list-group-item h-100">
+              <div>
+                <strong>Empresa:</strong>
+                <ul>
+                  <li>Nombre: {{ invoice.company.name }}</li>
+                  <li>Número Fiscal: {{ invoice.company.fiscalNumber }}</li>
+                  <li>Teléfono: {{ invoice.company.phone }}</li>
+                  <li>Correo: {{ invoice.company.email }}</li>
+                </ul>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <strong>Valor:</strong>
+              <ul>
+                <li><strong> Total:</strong> {{ invoice.total }}</li>
+                <li>
+                  <strong>Método de Pago:</strong> {{ invoice.methodPayment }}
+                </li>
+                <li><strong> Estado:</strong> {{ invoice.status }}</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+<br>
+      <div class="d-flex align-items-center  ">
+        <ul  class="list-group flex-grow-1">
+          <!-- <li>
             <div>
                 <strong>Items:</strong>
                 <ul>
@@ -43,32 +81,32 @@
                 </ul>
             </div>
         </li> -->
-    <li>
-      <table>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Producto</th>
-            <th>Nombre</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of invoice.items">
-            <td>{{ item.id }}</td>
-            <td>{{ item.product }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.quantity }}</td>
-            <td>{{ item.price }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </li>
-    <li><strong> Total:</strong> {{ invoice.total }}</li>
-    <li><strong>Método de Pago:</strong>  {{ invoice.methodPayment }}</li>
-    <li><strong> Estado:</strong>  {{ invoice.status }}</li>
-  </ul>
+          <li class="list-group-item">
+            <table class="table table-striped">
+              <thead class="table-dark">
+                <tr>
+                  <th>Id</th>
+                  <th>Producto</th>
+                  <th>Nombre</th>
+                  <th>Cantidad</th>
+                  <th>Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of invoice.items">
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.product }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>{{ item.price }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </div>
 
-  <div></div>
+
+    </div>
+  </div>
 </div>
